@@ -97,7 +97,7 @@ function Pricing() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          style={{ fontSize: 'clamp(3rem, 7vw, 4rem)', fontWeight: '900', marginBottom: '1.5rem', lineHeight: 1.05, letterSpacing: '-0.04em' }}
+          style={{ fontSize: 'clamp(1.8rem, 5vw, 2.6rem)', fontWeight: '800', marginBottom: '0.8rem', lineHeight: 1.2 }}
         >
           Choose Your <span className="gradient-text">Career Plan</span>
         </motion.h1>
@@ -105,7 +105,7 @@ function Pricing() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          style={{ color: 'var(--color-text-secondary)', fontSize: '1.2rem', maxWidth: '650px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}
+          style={{ color: 'var(--color-text-secondary)', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 2rem', lineHeight: 1.6 }}
         >
           All plans include access to our core AI features. Upgrade anytime.
         </motion.p>
@@ -145,12 +145,12 @@ function Pricing() {
               transition: { duration: 0.2 }
             }}
             style={{
-              flex: '1 1 320px', maxWidth: '400px', padding: '3rem 2.5rem', display: 'flex', flexDirection: 'column', position: 'relative',
+              flex: '1 1 290px', maxWidth: '360px', padding: '2.5rem 2rem', display: 'flex', flexDirection: 'column', position: 'relative',
               border: plan.popular ? '1px solid var(--color-primary)' : '1px solid var(--color-card-border)',
               background: plan.popular ? 'rgba(16,185,129,0.05)' : 'var(--color-card-glass)',
-              boxShadow: plan.popular ? '0 25px 50px rgba(16,185,129,0.12)' : 'none',
+              boxShadow: plan.popular ? '0 20px 40px rgba(16,185,129,0.1)' : 'none',
               zIndex: plan.popular ? 1 : 0,
-              scale: plan.popular ? 1.05 : 1
+              scale: plan.popular ? 1.04 : 1
             }}
           >
             {plan.popular && (
@@ -160,7 +160,7 @@ function Pricing() {
                 transition={{ delay: 0.8 }}
                 style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', background: 'var(--color-gradient-primary)', color: '#080C14', padding: '4px 18px', borderRadius: '999px', fontSize: '0.75rem', fontWeight: '800', whiteSpace: 'nowrap' }}
               >
-                ⭐ MOST POPULAR
+                MOST POPULAR
               </motion.div>
             )}
 

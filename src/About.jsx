@@ -25,16 +25,10 @@ function About() {
       className="page-container"
     >
       <motion.div variants={itemVariants} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-        <motion.div 
-          whileHover={{ scale: 1.05 }}
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(74, 144, 226, 0.08)', border: '1px solid var(--color-card-border)', borderRadius: '999px', padding: '6px 16px', marginBottom: '1.2rem', fontSize: '0.85rem', color: 'var(--color-accent)' }}
-        >
-          🌱 About Us
-        </motion.div>
-        <h1 style={{ fontSize: 'clamp(3rem, 7vw, 4.5rem)', fontWeight: '900', marginBottom: '1.5rem', lineHeight: 1.05, letterSpacing: '-0.04em' }}>
+        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', fontWeight: '800', marginBottom: '1rem', lineHeight: 1.2 }}>
           About <span className="gradient-text">Careeva</span>
         </h1>
-        <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.2rem', maxWidth: '850px', margin: '0 auto', lineHeight: 1.7 }}>
+        <p style={{ color: 'var(--color-text-secondary)', fontSize: '1rem', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
           Kami hadir untuk mendemokratisasi pertumbuhan karier melalui kekuatan AI yang personal dan mudah diakses oleh siapa saja.
         </p>
       </motion.div>
@@ -44,17 +38,20 @@ function About() {
         <motion.div 
           variants={itemVariants}
           className="glass-card" 
-          style={{ padding: '3rem', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}
+          style={{ padding: '2rem', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}
         >
           <div style={{ flex: '1 1 300px' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem', color: 'var(--color-primary)', fontWeight: '900', lineHeight: 1.1 }}>🎯 Our Vision</h2>
-            <div style={{ width: '60px', height: '5px', background: 'var(--color-gradient-primary)', borderRadius: '3px' }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '1.8rem' }}>🎯</span>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--color-secondary)' }}>Our Vision</h2>
+            </div>
+            <div style={{ width: '40px', height: '3px', background: 'var(--color-primary)', borderRadius: '2px', marginBottom: '1.5rem' }}></div>
           </div>
-          <p style={{ flex: '2 1 600px', color: 'var(--color-text-secondary)', fontSize: '1.2rem', lineHeight: '1.8' }}>
-            Mencari pekerjaan atau berkembang dalam karier secara tradisional adalah proses yang melelahkan dan tidak transparan.
-            Di Careeva, kami percaya setiap orang berhak mendapatkan career coach pribadi. Dengan memanfaatkan model Generative AI mutakhir,
-            kami memberikan feedback yang actionable, personal, dan instan untuk pencari kerja dan profesional di mana saja.
-          </p>
+          <div style={{ flex: '2 1 500px' }}>
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, fontWeight: '400' }}>
+              Mencari pekerjaan atau berkembang dalam karier secara tradisional adalah proses yang melelahkan dan tidak transparan. Di Careeva, kami percaya setiap orang berhak mendapatkan career coach pribadi. Dengan memanfaatkan model Generative AI mutakhir, kami memberikan feedback yang actionable, personal, dan instan untuk pencari kerja dan profesional di mana saja.
+            </p>
+          </div>
         </motion.div>
 
         {/* Feature Grid - Forced 3 Columns */}
@@ -78,20 +75,20 @@ function About() {
               variants={itemVariants}
               whileHover={{ y: -8, borderColor: 'rgba(74, 144, 226, 0.4)' }}
               className="glass-card" 
-              style={{ padding: '2.5rem', textAlign: 'center', display: 'flex', flexDirection: 'column', height: '100%' }}
+              style={{ padding: '1.8rem', textAlign: 'center', display: 'flex', flexDirection: 'column', height: '100%' }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{item.icon}</div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.6rem', fontWeight: '800' }}>{item.title}</h3>
-              <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.6, fontSize: '0.95rem', flexGrow: 1 }}>{item.desc}</p>
+              <div style={{ fontSize: '2.2rem', marginBottom: '0.8rem' }}>{item.icon}</div>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '800' }}>{item.title}</h3>
+              <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.6, fontSize: '0.85rem', flexGrow: 1 }}>{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Values Section - Compact Horizontal */}
         <motion.div variants={itemVariants} className="glass-card" style={{ padding: '3rem' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: '900', marginBottom: '0.4rem', color: 'var(--color-secondary)' }}>💛 Our Values</h2>
-            <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem' }}>Prinsip yang mendasari setiap inovasi kami.</p>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '0.3rem', color: 'var(--color-secondary)' }}>💛 Our Values</h2>
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem' }}>Prinsip yang mendasari setiap inovasi kami.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
             {[
@@ -122,8 +119,8 @@ function About() {
         whileHover={{ scale: 1.01 }}
         style={{ textAlign: 'center', padding: '4rem 2rem', background: 'linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(124, 185, 232, 0.05) 100%)', borderRadius: '28px', border: '1px solid rgba(74, 144, 226, 0.15)' }}
       >
-        <h2 style={{ fontSize: '2.2rem', marginBottom: '1rem', fontWeight: '900' }}>Ready to elevate your career?</h2>
-        <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2.5rem', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
+        <h2 style={{ fontSize: '1.8rem', marginBottom: '0.8rem', fontWeight: '800' }}>Ready to elevate your career?</h2>
+        <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2rem', fontSize: '1rem', maxWidth: '550px', margin: '0 auto 2rem' }}>
           Bergabung dengan 50.000+ profesional yang sudah berhasil.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -134,7 +131,7 @@ function About() {
               className="btn-gradient" 
               style={{ fontSize: '1rem', padding: '16px 36px' }}
             >
-              🚀 Get Started
+              Get Started
             </motion.div>
           </Link>
           <Link to="/pricing">
