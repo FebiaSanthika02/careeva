@@ -1,0 +1,262 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const features = [
+  { icon: '💼', title: 'Career Assistant', desc: 'Upload CV dan dapatkan skor ATS, cover letter AI-generated, dan feedback personal.', link: '/career-assistant' },
+  { icon: '🎨', title: 'UI/UX Critic', desc: 'Feedback desain portfolio dari AI yang terlatih pada pola desain modern.', link: '/ui-ux-critic' },
+  { icon: '⚡', title: 'Daily Helper', desc: 'Asisten cerdas untuk persiapan interview, pertanyaan teknis, dan perencanaan harian.', link: '/daily-helper' },
+  { icon: '🧭', title: 'Career Path', desc: 'Dari posisi sekarang ke impian kamu — roadmap belajar personal dari AI.', link: '/career-path' },
+  { icon: '🤝', title: 'Salary Negotiator', desc: 'Latih negosiasi gaji dengan AI HR Manager dan raih kompensasi terbaik.', link: '/salary-negotiator' },
+  { icon: '💼', title: 'LinkedIn Optimizer', desc: 'Tulis ulang headline dan summary LinkedIn kamu jadi 3 versi profesional.', link: '/linkedin-optimizer' },
+];
+
+const stats = [
+  { number: '50K+', label: 'CV Dianalisis' },
+  { number: '94%', label: 'Tingkat Kepuasan' },
+  { number: '3x', label: 'Lebih Cepat Lolos' },
+  { number: '10+', label: 'Fitur AI' },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
+
+function Home() {
+  const navigate = useNavigate();
+
+  return (
+    <div style={{ 
+      paddingBottom: '5rem',
+      background: `
+        radial-gradient(circle at 10% 10%, rgba(74, 144, 226, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 30%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(74, 144, 226, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 80% 95%, rgba(74, 144, 226, 0.05) 0%, transparent 40%)
+      `,
+      position: 'relative'
+    }}>
+
+      {/* Hero */}
+      <section style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '0 8%', minHeight: '95vh', gap: '5%',
+        position: 'relative', overflow: 'hidden'
+      }}>
+
+        <div style={{ flex: '1 1 700px', zIndex: 10 }}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '999px', padding: '8px 22px', marginBottom: '2.5rem', fontSize: '0.9rem', color: 'var(--color-accent)', fontWeight: '600' }}
+          >
+            Powered by Gemini AI &nbsp;·&nbsp; <span style={{ color: 'var(--color-secondary)' }}>6 Professional AI Tools</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            style={{ fontSize: 'clamp(3.5rem, 9vw, 6rem)', fontWeight: '950', lineHeight: 0.98, marginBottom: '2rem', letterSpacing: '-0.05em' }}
+          >
+            Boost Your Career<br />with <span className="gradient-text">AI-Powered</span><br />Tools
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ fontSize: '1.35rem', color: 'var(--color-text-secondary)', marginBottom: '3.5rem', lineHeight: 1.6, maxWidth: '650px' }}
+          >
+            Analisis CV, tingkatkan desain, dan rencanakan karier kamu bersama AI. Copilot terbaik untuk perjalanan profesionalmu.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '4rem' }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(74, 144, 226, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-gradient"
+              onClick={() => navigate('/career-assistant')}
+              style={{ fontSize: '1.2rem', padding: '20px 48px', borderRadius: '16px' }}
+            >
+              Get Started Free
+            </motion.button>
+          </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}
+          >
+            {stats.map((s, i) => (
+              <motion.div key={i} variants={itemVariants} whileHover={{ y: -5 }} style={{ cursor: 'default' }}>
+                <div style={{ fontSize: '2rem', fontWeight: '900', background: 'var(--color-gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{s.number}</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '2px', fontWeight: '600' }}>{s.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Right — Focused floating cards */}
+        <div style={{ flex: '1 1 600px', position: 'relative', height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ position: 'absolute', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+
+          {/* ATS Score */}
+          <motion.div
+            className="glass-card"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ position: 'absolute', top: '5%', right: '10%', padding: '2rem', width: '300px', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', cursor: 'pointer', zIndex: 3 }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div style={{ fontSize: '1rem', color: 'var(--color-text-secondary)', marginBottom: '0.6rem', fontWeight: '600' }}>ATS CV Score</div>
+            <div style={{ fontSize: '3.5rem', fontWeight: '950', color: 'var(--color-primary)', lineHeight: 1 }}>92<span style={{ fontSize: '1.3rem', color: 'var(--color-text-secondary)' }}>/100</span></div>
+            <div style={{ height: '7px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', marginTop: '1.2rem', overflow: 'hidden' }}>
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: '92%' }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+                style={{ height: '100%', background: 'var(--color-gradient-primary)', borderRadius: '4px' }}
+              />
+            </div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--color-accent)', marginTop: '0.8rem', fontWeight: '700' }}>✓ ATS Optimized</div>
+          </motion.div>
+
+          {/* AI Chat Bubble */}
+          <motion.div
+            className="glass-card"
+            whileHover={{ scale: 1.05, rotate: -2 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ position: 'absolute', top: '38%', left: '0', padding: '1.5rem', width: '340px', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', display: 'flex', gap: '1rem', alignItems: 'flex-start', cursor: 'pointer', zIndex: 4 }}
+            animate={{ x: [0, -10, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          >
+            <div style={{ background: 'var(--color-gradient-primary)', width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: '900', color: '#080C14' }}>AI</div>
+            <div style={{ fontSize: '1.05rem', lineHeight: 1.5, fontWeight: '500' }}>Tambahkan metrik seperti <span style={{ color: 'var(--color-secondary)', fontWeight: '800' }}>"Meningkatkan penjualan 30%"</span></div>
+          </motion.div>
+
+          {/* CV Personality */}
+          <motion.div
+            className="glass-card"
+            whileHover={{ scale: 1.05, rotate: 1 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ position: 'absolute', bottom: '5%', right: '15%', padding: '0.8rem', width: '220px', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', background: '#fdf5e6', cursor: 'pointer', zIndex: 2 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", reverse: true }}
+          >
+            <img src="/cv-personality.png" alt="CV Personality" style={{ width: '100%', borderRadius: '10px' }} />
+            <div style={{ color: '#5d4037', fontSize: '0.9rem', textAlign: 'center', fontWeight: '900', marginTop: '0.5rem' }}>You are Americano! ☕</div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section style={{ 
+        padding: '8rem 5%', 
+        position: 'relative'
+      }}>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: '800' }}>How it <span className="gradient-text">Works</span></h2>
+        </div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          style={{ display: 'flex', justifyContent: 'center', gap: '0', maxWidth: '900px', margin: '0 auto', flexWrap: 'wrap' }}
+        >
+          {[
+            { step: '01', icon: '📤', title: 'Upload / Input', desc: 'Masukkan CV atau paste konten kamu ke platform aman kami.' },
+            { step: '02', icon: '🤖', title: 'AI Analyze', desc: 'Model AI canggih kami memproses dan mengevaluasi data kamu secara instan.' },
+            { step: '03', icon: '💡', title: 'Get Insights', desc: 'Terima feedback yang actionable, skor, dan konten yang sudah diimprove.' },
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              style={{ flex: '1 1 240px', textAlign: 'center', padding: '2rem', position: 'relative' }}
+            >
+              {idx < 2 && (
+                <div style={{ position: 'absolute', top: '3.5rem', right: '-1rem', color: 'var(--color-card-border)', fontSize: '1.5rem', zIndex: 1, opacity: 0.5 }}>→</div>
+              )}
+              <div style={{ width: '70px', height: '70px', borderRadius: '20px', background: 'rgba(16,185,129,0.08)', border: '1px solid var(--color-card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', margin: '0 auto 1.5rem' }}>
+                {item.icon}
+              </div>
+              <div style={{ fontSize: '0.75rem', fontWeight: '800', color: 'var(--color-primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>STEP {item.step}</div>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.75rem' }}>{item.title}</h3>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>{item.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* CTA Banner */}
+      <section style={{ padding: '6rem 5%' }}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          style={{ 
+            maxWidth: '900px', 
+            margin: '0 auto', 
+            textAlign: 'center', 
+            padding: '5rem 3rem', 
+            borderRadius: '32px', 
+            background: 'rgba(255, 255, 255, 0.02)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            boxShadow: '0 30px 60px rgba(0,0,0,0.2)'
+          }}
+        >
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>Siap tingkatkan kariermu?</h2>
+          <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.2rem', marginBottom: '3rem', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 3rem' }}>
+            Bergabung dengan 50.000+ profesional yang sudah memanfaatkan Careeva untuk mendapatkan pekerjaan impian.
+          </p>
+          <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 15px 30px rgba(74, 144, 226, 0.2)' }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-gradient"
+              onClick={() => navigate('/career-assistant')}
+              style={{ fontSize: '1.1rem', padding: '16px 40px', borderRadius: '14px' }}
+            >
+              Get Started Now
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-outline"
+              onClick={() => navigate('/pricing')}
+              style={{ fontSize: '1.1rem', padding: '16px 40px', borderRadius: '14px' }}
+            >
+              Lihat Harga
+            </motion.button>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+}
+
+export default Home;
