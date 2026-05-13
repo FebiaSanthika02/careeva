@@ -12,6 +12,7 @@ import SalaryNegotiator from './SalaryNegotiator';
 import LinkedinOptimizer from './LinkedinOptimizer';
 import Pricing from './Pricing';
 import About from './About';
+import Footer from './Footer';
 import './App.css';
 
 function Header() {
@@ -59,12 +60,15 @@ function Header() {
               alignItems: 'center', 
               justifyContent: 'center', 
               flexShrink: 0,
-              boxShadow: '0 8px 16px rgba(74, 144, 226, 0.2)'
+              boxShadow: '0 8px 16px rgba(74, 144, 226, 0.2)',
+              position: 'relative'
             }}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
+            {/* Briefcase Icon */}
+            <div style={{ width: '22px', height: '16px', border: '2.5px solid #fff', borderRadius: '4px', position: 'relative', marginTop: '4px' }}>
+              <div style={{ width: '8px', height: '5px', border: '2.5px solid #fff', borderBottom: 'none', borderRadius: '3px 3px 0 0', position: 'absolute', top: '-7px', left: '50%', transform: 'translateX(-50%)' }}></div>
+              <div style={{ width: '4px', height: '4px', background: '#fff', borderRadius: '50%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
+            </div>
           </motion.div>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.1rem' }}>
             <span style={{ fontWeight: '900' }}>Caree</span>
@@ -158,71 +162,6 @@ function Header() {
   );
 }
 
-function Footer() {
-  return (
-    <motion.footer 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      style={{
-        borderTop: '1px solid var(--color-card-border)',
-        padding: '2.5rem 5%',
-        background: 'rgba(8,12,20,0.9)',
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <motion.span 
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.5 }}
-            style={{ display: 'inline-flex', width: '32px', height: '32px', background: 'linear-gradient(135deg, #4a90e2 0%, #7cb9e8 100%)', borderRadius: '12px', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '900', fontSize: '1rem' }}
-          >
-            C
-          </motion.span>
-          <div>
-            <div style={{ fontSize: '1.3rem', fontWeight: '800', marginBottom: '0.5rem' }}>
-              Caree<span style={{ color: 'var(--color-primary)' }}>va</span>
-            </div>
-            <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem' }}>AI-powered career tools for the modern professional.</p>
-          </div>
-        </div>
-        <div style={{ display: 'flex', gap: '2rem', fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <span style={{ fontWeight: '700', color: 'var(--color-text-primary)', marginBottom: '0.25rem' }}>Product</span>
-            {[['/', 'Home'], ['/features', 'Features'], ['/pricing', 'Pricing']].map(([to, label]) => (
-              <motion.div key={to} whileHover={{ x: 5 }}>
-                <Link to={to} style={{ color: 'var(--color-text-secondary)', transition: 'color 0.2s' }}>{label}</Link>
-              </motion.div>
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <span style={{ fontWeight: '700', color: 'var(--color-text-primary)', marginBottom: '0.25rem' }}>Company</span>
-            {[['/about', 'About'], ['#', 'Blog'], ['#', 'Careers']].map(([to, label]) => (
-              <motion.div key={label} whileHover={{ x: 5 }}>
-                <Link to={to} style={{ color: 'var(--color-text-secondary)', transition: 'color 0.2s' }}>{label}</Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div style={{ maxWidth: '1200px', margin: '1.5rem auto 0', paddingTop: '1.5rem', borderTop: '1px solid var(--color-card-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.82rem', color: 'var(--color-text-secondary)' }}>
-        <div>© 2026 Careeva. All rights reserved.</div>
-        <div style={{ display: 'flex', gap: '1.5rem' }}>
-          {['Twitter', 'LinkedIn', 'GitHub'].map(s => (
-            <motion.a 
-              key={s} 
-              href="#" 
-              whileHover={{ y: -3, color: 'var(--color-accent)' }}
-              style={{ color: 'var(--color-text-secondary)', transition: 'color 0.2s' }}
-            >
-              {s}
-            </motion.a>
-          ))}
-        </div>
-      </div>
-    </motion.footer>
-  );
-}
 
 function App() {
   return (

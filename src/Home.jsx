@@ -42,13 +42,7 @@ function Home() {
   return (
     <div style={{ 
       paddingBottom: '5rem',
-      background: `
-        radial-gradient(circle at 10% 10%, rgba(74, 144, 226, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 30%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(74, 144, 226, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
-        radial-gradient(circle at 80% 95%, rgba(74, 144, 226, 0.05) 0%, transparent 40%)
-      `,
+      minHeight: '100vh',
       position: 'relative'
     }}>
 
@@ -177,13 +171,23 @@ function Home() {
         </div>
       </section>
 
-      {/* How it Works */}
+      {/* How it Works — Enhanced with backgrounds and connections */}
       <section style={{ 
-        padding: '8rem 5%', 
-        position: 'relative'
+        padding: '10rem 5%', 
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: '800' }}>How it <span className="gradient-text">Works</span></h2>
+        {/* Decorative Background Elements */}
+        <div style={{ position: 'absolute', top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-glow-primary)', filter: 'blur(120px)', opacity: 0.15, zIndex: 0 }}></div>
+        <div style={{ position: 'absolute', bottom: '10%', right: '10%', width: '400px', height: '400px', background: 'var(--color-glow-secondary)', filter: 'blur(150px)', opacity: 0.1, zIndex: 0 }}></div>
+
+        <div style={{ textAlign: 'center', marginBottom: '5rem', position: 'relative', zIndex: 1 }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: '950', marginBottom: '1.2rem', letterSpacing: '-0.03em' }}>
+            Transform Your <span className="gradient-text">Journey</span>
+          </h2>
+          <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+            Hanya butuh 3 langkah sederhana untuk mengoptimalkan karier Anda dengan bantuan AI tercanggih.
+          </p>
         </div>
 
         <motion.div
@@ -191,28 +195,58 @@ function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          style={{ display: 'flex', justifyContent: 'center', gap: '0', maxWidth: '900px', margin: '0 auto', flexWrap: 'wrap' }}
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '2rem', 
+            maxWidth: '1100px', 
+            margin: '0 auto', 
+            flexWrap: 'wrap',
+            position: 'relative',
+            zIndex: 1
+          }}
         >
+          {/* Connecting Line (Desktop Only) */}
+          <div className="desktop-only" style={{ position: 'absolute', top: '25%', left: '15%', right: '15%', height: '2px', background: 'linear-gradient(90deg, transparent, var(--color-card-border), transparent)', zIndex: 0 }}></div>
+
           {[
-            { step: '01', icon: '📤', title: 'Upload / Input', desc: 'Masukkan CV atau paste konten kamu ke platform aman kami.' },
-            { step: '02', icon: '🤖', title: 'AI Analyze', desc: 'Model AI canggih kami memproses dan mengevaluasi data kamu secara instan.' },
-            { step: '03', icon: '💡', title: 'Get Insights', desc: 'Terima feedback yang actionable, skor, dan konten yang sudah diimprove.' },
+            { step: '01', icon: '📤', title: 'Upload / Input', desc: 'Masukkan CV atau paste konten kamu ke platform aman kami.', color: 'rgba(74, 144, 226, 0.15)' },
+            { step: '02', icon: '🤖', title: 'AI Analyze', desc: 'Model AI canggih kami memproses dan mengevaluasi data kamu secara instan.', color: 'rgba(124, 185, 232, 0.15)' },
+            { step: '03', icon: '💡', title: 'Get Insights', desc: 'Terima feedback yang actionable, skor, dan konten yang sudah diimprove.', color: 'rgba(91, 163, 208, 0.15)' },
           ].map((item, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              style={{ flex: '1 1 240px', textAlign: 'center', padding: '2rem', position: 'relative' }}
+              whileHover={{ y: -10 }}
+              style={{ 
+                flex: '1 1 280px', 
+                textAlign: 'center', 
+                padding: '3rem 2rem', 
+                position: 'relative',
+                background: 'rgba(255,255,255,0.02)',
+                borderRadius: '32px',
+                border: '1px solid var(--color-card-border)',
+                backdropFilter: 'blur(10px)'
+              }}
             >
-              {idx < 2 && (
-                <div style={{ position: 'absolute', top: '3.5rem', right: '-1rem', color: 'var(--color-card-border)', fontSize: '1.5rem', zIndex: 1, opacity: 0.5 }}>→</div>
-              )}
-              <div style={{ width: '70px', height: '70px', borderRadius: '20px', background: 'rgba(16,185,129,0.08)', border: '1px solid var(--color-card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', margin: '0 auto 1.5rem' }}>
+              <div style={{ 
+                width: '85px', 
+                height: '85px', 
+                borderRadius: '24px', 
+                background: item.color, 
+                border: '1px solid rgba(255,255,255,0.1)', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                fontSize: '2.2rem', 
+                margin: '0 auto 2rem',
+                boxShadow: '0 15px 35px rgba(0,0,0,0.2)'
+              }}>
                 {item.icon}
               </div>
-              <div style={{ fontSize: '0.75rem', fontWeight: '800', color: 'var(--color-primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>STEP {item.step}</div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.75rem' }}>{item.title}</h3>
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>{item.desc}</p>
+              <div style={{ fontSize: '0.8rem', fontWeight: '900', color: 'var(--color-primary)', letterSpacing: '0.2em', marginBottom: '0.8rem', textTransform: 'uppercase' }}>STEP {item.step}</div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '800', marginBottom: '1rem', letterSpacing: '-0.01em' }}>{item.title}</h3>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: 1.65 }}>{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>
