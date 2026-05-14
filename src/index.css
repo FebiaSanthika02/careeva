@@ -27,9 +27,12 @@ html {
   --color-bg-main: #1a1a2e;
   --color-bg-secondary: #16213e;
   --color-primary: #4a90e2;
+  /* Soft Blue */
   --color-primary-dark: #357abd;
   --color-secondary: #7cb9e8;
+  /* Light Blue */
   --color-accent: #5ba3d0;
+  /* Medium Blue */
 
   --color-card-glass: rgba(74, 144, 226, 0.04);
   --color-card-border: rgba(74, 144, 226, 0.18);
@@ -228,10 +231,7 @@ button {
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(74, 144, 226, 0.25),
-      transparent);
+  background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.25), transparent);
 }
 
 /* Responsive Utilities */
@@ -257,17 +257,17 @@ button {
   }
 
   .page-container {
-    padding: 1.5rem 5% !important;
-    margin-top: 0.5rem !important;
+    padding: 2rem 5% !important;
+    margin-top: 1rem !important;
   }
 
   h1 {
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
     line-height: 1.2 !important;
   }
 
   .glass-card {
-    padding: 1rem !important;
+    padding: 1.5rem !important;
   }
 }
 
@@ -289,7 +289,7 @@ button {
   background: rgba(74, 144, 226, 0.5);
 }
 
-/* Home Hero */
+/* Home Page Hero Responsive */
 .home-hero {
   display: flex;
   align-items: center;
@@ -329,22 +329,21 @@ button {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .home-hero-stats {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 
 @media (max-width: 1024px) {
   .home-hero {
     flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 40px;
     text-align: center;
-    min-height: auto;
   }
 
   .home-hero-left {
@@ -359,98 +358,106 @@ button {
   }
 
   .home-hero-right {
-    height: 400px;
+    height: 450px;
     flex: 1 1 auto;
     width: 100%;
   }
 
   .home-hero-cluster {
-    transform: scale(0.8);
+    transform: scale(0.85);
   }
 }
 
 @media (max-width: 768px) {
   .home-hero {
-    padding-top: 20px;
-    gap: 1rem;
+    padding-top: 40px;
   }
 
   .home-hero-right {
-    height: 280px;
-    margin-top: 0;
+    height: 360px;
+    margin-top: 20px;
+  }
+
+  .home-hero-cluster {
+    transform: scale(0.65);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-right {
+    height: 310px;
+    margin-top: 10px;
   }
 
   .home-hero-cluster {
     transform: scale(0.55);
   }
 
-  .home-hero-buttons {
-    margin-bottom: 1rem;
-  }
-
   .home-hero-stats {
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
   }
 }
 
-/* Sections */
 .home-section {
-  padding: 6rem 5%;
+  padding: 10rem 5%;
   position: relative;
   overflow: hidden;
 }
 
 .home-cta-section {
-  padding: 3rem 5%;
+  padding: 6rem 5%;
 }
 
 .home-cta-card {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-  padding: 2.5rem 1.5rem;
-  border-radius: 24px;
+  padding: 5rem 3rem;
+  border-radius: 32px;
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
   .home-section {
-    padding: 3rem 5%;
+    padding: 5rem 5%;
   }
 
   .home-cta-section {
-    padding: 2rem 5%;
+    padding: 3rem 5%;
   }
 
   .home-cta-card {
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem;
   }
 }
 
-/* Career Layout */
+/* Career Assistant Layout */
 .career-layout {
   display: flex;
   flex: 1;
-  min-height: auto;
+  min-height: calc(100vh - 70px);
 }
 
 .career-sidebar {
   width: 280px;
   background: rgba(255, 255, 255, 0.02);
   border-right: 1px solid var(--color-card-border);
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
 }
 
 .career-main {
   flex: 1;
-  padding: 2rem 5%;
+  padding: 3rem 5%;
 }
 
 @media (max-width: 768px) {
@@ -464,57 +471,41 @@ button {
     position: static;
     border-right: none;
     border-bottom: 1px solid var(--color-card-border);
-    padding: 0.7rem 5%;
+    padding: 1rem 5%;
     flex-direction: row;
     overflow-x: auto;
     align-items: center;
-    gap: 0.5rem;
   }
 
   .career-sidebar>div:first-child {
     display: none;
+    /* Hides "Career Tools" title on mobile */
   }
 
   .career-sidebar button {
     flex: 0 0 auto;
     white-space: nowrap;
-    padding: 0.6rem 1rem !important;
+    padding: 0.8rem 1.2rem !important;
   }
 
   .career-main {
-    padding: 1.5rem 5%;
+    padding: 2rem 5%;
   }
 }
 
-/* Footer */
+/* Footer Responsive Styles */
 .footer {
-  padding: 1.2rem 5% 0.6rem;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.footer-desc {
-  color: var(--color-text-secondary);
-  line-height: 1.4;
-}
-
-.footer-bottom {
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
+  padding: 2rem 5%;
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 0.6rem 5% 0.3rem;
+    padding: 1rem 5% 0.5rem;
   }
 
   .footer-content {
     flex-direction: column;
-    gap: 0.2rem !important;
+    gap: 0.5rem !important;
   }
 
   .footer-brand {
@@ -522,7 +513,7 @@ button {
   }
 
   .footer .logo {
-    margin-bottom: 0.2rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .footer-nav-groups {
@@ -530,17 +521,13 @@ button {
   }
 
   .footer-desc {
-    font-size: 0.72rem !important;
-    line-height: 1.2 !important;
+    font-size: 0.75rem !important;
     margin-bottom: 0 !important;
+    line-height: 1.3 !important;
   }
 
   .footer-bottom {
     margin-top: 0.2rem !important;
     padding-top: 0.2rem !important;
-  }
-
-  .footer-bottom p {
-    font-size: 0.7rem !important;
   }
 }
