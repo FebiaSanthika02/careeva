@@ -417,22 +417,13 @@ button {
   }
   .footer-content {
     flex-direction: column;
-    gap: 1.25rem !important;
+    gap: 1rem !important;
   }
   .footer-nav-groups {
-    gap: 1rem !important;
-    justify-content: flex-start !important;
-    width: 100%;
-  }
-  .footer-links {
-    flex: 0 0 auto !important;
-    min-width: 100px !important;
-  }
-  .footer-links h4 {
-    margin-bottom: 0.5rem !important;
+    display: none !important;
   }
   .footer-desc {
-    font-size: 0.75rem !important;
+    font-size: 0.8rem !important;
     margin-bottom: 0 !important;
   }
   .footer-bottom {
