@@ -224,24 +224,13 @@ function CareerAssistant() {
   };
 
   return (
-    <div style={{ display: 'flex', flex: 1, minHeight: 'calc(100vh - 70px)' }}>
+    <div className="career-layout">
       
       {/* Sidebar */}
       <motion.aside 
-        initial={{ x: -280 }}
-        animate={{ x: 0 }}
-        style={{ 
-          width: '280px', 
-          background: 'rgba(255,255,255,0.02)', 
-          borderRight: '1px solid var(--color-card-border)',
-          padding: '2rem 1.5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem',
-          position: 'sticky',
-          top: '70px',
-          height: 'calc(100vh - 70px)'
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="career-sidebar"
       >
         <div style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--color-primary)' }}>
           Career Tools
@@ -272,7 +261,7 @@ function CareerAssistant() {
       </motion.aside>
 
       {/* Main Content */}
-      <div style={{ flex: 1, padding: '3rem 5%' }}>
+      <div className="career-main">
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           
           <motion.h1 
@@ -310,7 +299,7 @@ function CareerAssistant() {
                   </motion.div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(280px, 1fr) minmax(340px, 1.3fr)', gap: '1rem', alignItems: 'stretch' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', alignItems: 'stretch' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     <motion.div whileHover={{ y: -5 }} className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.08)' }}>
                       <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: '0.8rem' }}>You are</div>
@@ -464,7 +453,7 @@ function CareerAssistant() {
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem', marginBottom: '2rem' }}
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '2rem' }}
                   >
                     {/* Score Card */}
                     <motion.div whileHover={{ rotate: 2 }} className="glass-card" style={{ padding: '2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>

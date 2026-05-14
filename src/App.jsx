@@ -122,40 +122,54 @@ function Header() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            style={{
-              position: 'fixed', top: 0, right: 0, width: '80%', height: '100vh',
-              background: 'rgba(13, 19, 33, 0.98)', backdropFilter: 'blur(10px)',
-              zIndex: 2000, padding: '5rem 2rem', display: 'flex', flexDirection: 'column', gap: '2rem'
-            }}
-          >
-            {navLinks.map(({ to, label }) => {
-              const isActive = path === to;
-              return (
-                <motion.div 
-                  key={label} 
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleNavClick(to)}
-                >
-                  <Link to={to} style={{ fontSize: '1.5rem', fontWeight: '700', color: isActive ? 'var(--color-primary)' : 'white' }}>
-                    {label}
-                  </Link>
-                </motion.div>
-              );
-            })}
-            <motion.button 
-              whileTap={{ scale: 0.95 }}
-              className="btn-gradient"
-              onClick={() => { navigate('/career-assistant'); setIsMobileMenuOpen(false); }}
-              style={{ marginTop: '2rem', width: '100%', padding: '15px' }}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{
+                position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
+                background: 'rgba(0,0,0,0.5)', zIndex: 1999
+              }}
+            />
+            {/* Menu Drawer */}
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              style={{
+                position: 'fixed', top: 0, right: 0, width: '80%', height: '100vh',
+                background: 'rgba(13, 19, 33, 0.98)', backdropFilter: 'blur(10px)',
+                zIndex: 2000, padding: '5rem 2rem', display: 'flex', flexDirection: 'column', gap: '2rem'
+              }}
             >
-              🚀 Try Now
-            </motion.button>
-          </motion.div>
+              {navLinks.map(({ to, label }) => {
+                const isActive = path === to;
+                return (
+                  <motion.div 
+                    key={label} 
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleNavClick(to)}
+                  >
+                    <Link to={to} style={{ fontSize: '1.5rem', fontWeight: '700', color: isActive ? 'var(--color-primary)' : 'white' }}>
+                      {label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+              <motion.button 
+                whileTap={{ scale: 0.95 }}
+                className="btn-gradient"
+                onClick={() => { navigate('/career-assistant'); setIsMobileMenuOpen(false); }}
+                style={{ marginTop: '2rem', width: '100%', padding: '15px' }}
+              >
+                🚀 Try Now
+              </motion.button>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.header>
