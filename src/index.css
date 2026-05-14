@@ -196,3 +196,123 @@ button {
 ::-webkit-scrollbar-track { background: var(--color-bg-main); }
 ::-webkit-scrollbar-thumb { background: rgba(74, 144, 226, 0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(74, 144, 226, 0.5); }
+
+/* Home Page Hero Responsive */
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  min-height: 95vh;
+  gap: 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero-left {
+  flex: 1 1 50%;
+  z-index: 10;
+}
+
+.home-hero-right {
+  flex: 1 1 550px;
+  position: relative;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero-buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.home-hero-stats {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .home-hero {
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+  .home-hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-hero-buttons, .home-hero-stats {
+    justify-content: center;
+  }
+  .home-hero-right {
+    height: 450px;
+    transform: scale(0.85);
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding-top: 40px;
+  }
+  .home-hero-right {
+    height: 380px;
+    transform: scale(0.65);
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-right {
+    height: 320px;
+    transform: scale(0.55);
+    margin-top: -60px;
+  }
+  .home-hero-stats {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+}
+
+.home-section {
+  padding: 10rem 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-cta-section {
+  padding: 6rem 5%;
+}
+
+.home-cta-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5rem 3rem;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 5rem 5%;
+  }
+  .home-cta-section {
+    padding: 3rem 5%;
+  }
+  .home-cta-card {
+    padding: 3rem 1.5rem;
+  }
+}
+

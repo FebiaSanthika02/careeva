@@ -47,13 +47,9 @@ function Home() {
     }}>
 
       {/* Hero */}
-      <section style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 8%', minHeight: '95vh', gap: '5%',
-        position: 'relative', overflow: 'hidden'
-      }}>
+      <section className="home-hero">
 
-        <div style={{ flex: '1 1 700px', zIndex: 10 }}>
+        <div className="home-hero-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -81,7 +77,7 @@ function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}
+            className="home-hero-buttons"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -99,7 +95,7 @@ function Home() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}
+            className="home-hero-stats"
           >
             {stats.map((s, i) => (
               <motion.div key={i} variants={itemVariants} whileHover={{ y: -5 }} style={{ cursor: 'default' }}>
@@ -111,7 +107,7 @@ function Home() {
         </div>
 
         {/* Right — Tight cluster of moving feature cards */}
-        <div style={{ flex: '1 1 550px', position: 'relative', height: '550px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="home-hero-right">
           <div style={{ position: 'absolute', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
 
           {/* ATS Score */}
@@ -172,11 +168,7 @@ function Home() {
       </section>
 
       {/* How it Works — Enhanced with backgrounds and connections */}
-      <section style={{ 
-        padding: '10rem 5%', 
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      <section className="home-section">
         {/* Decorative Background Elements */}
         <div style={{ position: 'absolute', top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-glow-primary)', filter: 'blur(120px)', opacity: 0.15, zIndex: 0 }}></div>
         <div style={{ position: 'absolute', bottom: '10%', right: '10%', width: '400px', height: '400px', background: 'var(--color-glow-secondary)', filter: 'blur(150px)', opacity: 0.1, zIndex: 0 }}></div>
@@ -253,22 +245,12 @@ function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section style={{ padding: '6rem 5%' }}>
+      <section className="home-cta-section">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          style={{ 
-            maxWidth: '900px', 
-            margin: '0 auto', 
-            textAlign: 'center', 
-            padding: '5rem 3rem', 
-            borderRadius: '32px', 
-            background: 'rgba(255, 255, 255, 0.02)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.05)',
-            boxShadow: '0 30px 60px rgba(0,0,0,0.2)'
-          }}
+          className="home-cta-card"
         >
           <h2 style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>Siap tingkatkan kariermu?</h2>
           <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.2rem', marginBottom: '3rem', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 3rem' }}>
