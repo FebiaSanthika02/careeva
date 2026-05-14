@@ -227,11 +227,7 @@ function CareerAssistant() {
     <div className="career-layout">
       
       {/* Sidebar */}
-      <motion.aside 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="career-sidebar"
-      >
+      <aside className="career-sidebar">
         <div style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--color-primary)' }}>
           Career Tools
         </div>
@@ -242,7 +238,7 @@ function CareerAssistant() {
         ].map(tab => (
           <motion.button 
             key={tab.id}
-            whileHover={{ x: 5, backgroundColor: 'rgba(74, 144, 226, 0.08)' }}
+            whileHover={{ scale: 1.02, backgroundColor: 'rgba(74, 144, 226, 0.08)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab(tab.id)}
             className="glass-card" 
@@ -258,7 +254,7 @@ function CareerAssistant() {
             {tab.label}
           </motion.button>
         ))}
-      </motion.aside>
+      </aside>
 
       {/* Main Content */}
       <div className="career-main">
