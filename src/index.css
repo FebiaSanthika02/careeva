@@ -407,17 +407,25 @@ button {
 }
 
 /* Footer Responsive Styles */
-@media (max-width: 480px) {
+.footer {
+  padding: 2rem 5%;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 5% 1rem;
+  }
   .footer-content {
     flex-direction: column;
     gap: 1.5rem !important;
   }
   .footer-nav-groups {
-    gap: 1.5rem !important;
-    justify-content: space-between;
+    gap: 2rem !important;
+    justify-content: flex-start !important;
     width: 100%;
   }
   .footer-links {
-    flex: 1 1 45%;
+    flex: 0 0 auto !important;
+    min-width: 120px !important;
   }
 }

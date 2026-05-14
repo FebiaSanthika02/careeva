@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="footer" style={{ padding: '2rem 5%', borderTop: '1px solid var(--color-card-border)', background: 'var(--color-bg-secondary)' }}>
+    <footer className="footer" style={{ borderTop: '1px solid var(--color-card-border)', background: 'var(--color-bg-secondary)' }}>
       <div className="footer-content" style={{ display: 'flex', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap', maxWidth: '900px', margin: '0 auto' }}>
         <div className="footer-brand" style={{ flex: '1 1 200px' }}>
           <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
@@ -52,7 +52,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer-bottom" style={{ maxWidth: '900px', margin: '1.5rem auto 0', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+      <div className="footer-bottom" style={{ maxWidth: '900px', margin: '1rem auto 0', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
         <p style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem' }}>
           &copy; {new Date().getFullYear()} Careeva AI. Hak Cipta Dilindungi.
         </p>
