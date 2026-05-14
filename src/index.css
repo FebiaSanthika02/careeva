@@ -500,16 +500,23 @@ button {
 
 @media (max-width: 768px) {
   .footer {
-    padding: 1.5rem 5% 1rem;
+    padding: 0.5rem 5% 0.5rem !important;
+    min-height: 0 !important;
   }
 
   .footer-content {
     flex-direction: column;
-    gap: 1rem !important;
+    gap: 0.5rem !important;
+    min-height: 0 !important;
   }
 
   .footer-brand {
     flex: 0 0 auto !important;
+    min-height: 0 !important;
+  }
+
+  .footer .logo {
+    margin-bottom: 0.5rem !important;
   }
 
   .footer-nav-groups {
@@ -517,12 +524,12 @@ button {
   }
 
   .footer-desc {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     margin-bottom: 0 !important;
   }
 
   .footer-bottom {
-    margin-top: 1rem !important;
-    padding-top: 0.75rem !important;
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
   }
 }
