@@ -405,3 +405,19 @@ button {
     padding: 2rem 5%;
   }
 }
+
+/* Footer Responsive Styles */
+@media (max-width: 480px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem !important;
+  }
+  .footer-nav-groups {
+    gap: 1.5rem !important;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-links {
+    flex: 1 1 45%;
+  }
+}

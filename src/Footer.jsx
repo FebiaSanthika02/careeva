@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -32,21 +33,21 @@ function Footer() {
           </p>
         </div>
         
-        <div style={{ display: 'flex', gap: '3rem' }}>
+        <div className="footer-nav-groups" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
           <div className="footer-links">
             <h4 style={{ fontSize: '0.85rem', fontWeight: '800', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.05em' }}>Product</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><a href="/" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Home</a></li>
-              <li><a href="/career-assistant" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>AI Assistant</a></li>
-              <li><a href="/pricing" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Pricing</a></li>
+              <li><Link to="/" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Home</Link></li>
+              <li><Link to="/career-assistant" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>AI Assistant</Link></li>
+              <li><Link to="/pricing" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Pricing</Link></li>
             </ul>
           </div>
           <div className="footer-links">
             <h4 style={{ fontSize: '0.85rem', fontWeight: '800', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.05em' }}>Company</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><a href="/about" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>About Us</a></li>
-              <li><a href="#" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Features</a></li>
-              <li><a href="#" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Careers</a></li>
+              <li><Link to="/about" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>About Us</Link></li>
+              <li><Link to="/features" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Features</Link></li>
+              <li><Link to="/careers" style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>Careers</Link></li>
             </ul>
           </div>
         </div>
