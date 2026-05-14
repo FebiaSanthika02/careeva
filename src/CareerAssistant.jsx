@@ -275,13 +275,11 @@ function CareerAssistant() {
             {activeTab === 'interview' && 'Mock Interview'}
           </motion.h1>
 
-          <AnimatePresence mode="wait">
             {activeTab === 'analyzer' && (
               <motion.div 
                 key="analyzer-intro"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
                 className="glass-card fade-in" 
                 style={{ padding: '1.75rem', marginBottom: '2rem', border: '1px solid rgba(255,255,255,0.08)', background: 'linear-gradient(180deg, rgba(74,144,226,0.08), rgba(10,17,34,0.85))' }}
               >
@@ -371,7 +369,6 @@ function CareerAssistant() {
                 </div>
               </motion.div>
             )}
-          </AnimatePresence>
 
           {/* SHARED UPLOAD (Required for all tools) */}
           {!file && (
