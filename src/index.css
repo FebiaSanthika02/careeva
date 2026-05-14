@@ -419,6 +419,9 @@ button {
     flex-direction: column;
     gap: 1rem !important;
   }
+  .footer-brand {
+    flex: 0 0 auto !important;
+  }
   .footer-nav-groups {
     display: none !important;
   }
