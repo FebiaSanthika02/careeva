@@ -495,12 +495,12 @@ button {
 
 /* Footer Responsive Styles */
 .footer {
-  padding: 2rem 5%;
+  padding: 3rem 5%;
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 0.5rem 5% 0.5rem !important;
+    padding: 2rem 5% !important;
     min-height: 0 !important;
   }
 
@@ -529,7 +529,7 @@ button {
   }
 
   .footer-bottom {
-    margin-top: 0.5rem !important;
-    padding-top: 0.5rem !important;
+    margin-top: 1.5rem !important;
+    padding-top: 1rem !important;
   }
 }
