@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
 :root {
   /* Eye-Friendly Blue Theme */
   --color-bg-main: #1a1a2e;
@@ -223,6 +244,16 @@ button {
   align-items: center;
 }
 
+.home-hero-cluster {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center center;
+}
+
 .home-hero-buttons {
   display: flex;
   gap: 0.8rem;
@@ -253,9 +284,11 @@ button {
   }
   .home-hero-right {
     height: 450px;
-    transform: scale(0.85);
     flex: 1 1 auto;
     width: 100%;
+  }
+  .home-hero-cluster {
+    transform: scale(0.85);
   }
 }
 
@@ -264,17 +297,21 @@ button {
     padding-top: 40px;
   }
   .home-hero-right {
-    height: 380px;
+    height: 360px;
+    margin-top: 20px;
+  }
+  .home-hero-cluster {
     transform: scale(0.65);
-    margin-top: -20px;
   }
 }
 
 @media (max-width: 480px) {
   .home-hero-right {
-    height: 320px;
+    height: 310px;
+    margin-top: 10px;
+  }
+  .home-hero-cluster {
     transform: scale(0.55);
-    margin-top: -60px;
   }
   .home-hero-stats {
     gap: 1.5rem;

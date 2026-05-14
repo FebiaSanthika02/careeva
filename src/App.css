@@ -720,6 +720,23 @@ button:disabled,
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    padding: 16px;
+  }
+  .dashboard-card,
+  .culture-card,
+  .testimonial-card,
+  .auth-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-card,
+  .job-card,
+  .culture-card,
+  .testimonial-card,
+  .auth-card {
+    padding: 12px;
   }
 }
 

@@ -108,62 +108,64 @@ function Home() {
 
         {/* Right — Tight cluster of moving feature cards */}
         <div className="home-hero-right">
-          <div style={{ position: 'absolute', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+          <div className="home-hero-cluster">
+            <div style={{ position: 'absolute', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
 
-          {/* ATS Score */}
-          <motion.div
-            className="glass-card"
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ position: 'absolute', top: '10%', right: '5%', padding: '1.8rem', width: '280px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', cursor: 'pointer', zIndex: 3 }}
-            animate={{ 
-              y: [0, -15, 0],
-              rotate: [2, 3, 2]
-            }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: '600' }}>ATS CV Score</div>
-            <div style={{ fontSize: '3.2rem', fontWeight: '950', color: 'var(--color-primary)', lineHeight: 1 }}>92<span style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)' }}>/100</span></div>
-            <div style={{ height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '3px', marginTop: '1.2rem', overflow: 'hidden' }}>
-              <div style={{ height: '100%', width: '92%', background: 'var(--color-gradient-primary)', borderRadius: '3px' }} />
-            </div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--color-accent)', marginTop: '0.8rem', fontWeight: '700' }}>✓ ATS Optimized</div>
-          </motion.div>
+            {/* ATS Score */}
+            <motion.div
+              className="glass-card"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ position: 'absolute', top: '10%', right: '5%', padding: '1.8rem', width: '280px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', cursor: 'pointer', zIndex: 3 }}
+              animate={{ 
+                y: [0, -15, 0],
+                rotate: [2, 3, 2]
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: '600' }}>ATS CV Score</div>
+              <div style={{ fontSize: '3.2rem', fontWeight: '950', color: 'var(--color-primary)', lineHeight: 1 }}>92<span style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)' }}>/100</span></div>
+              <div style={{ height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '3px', marginTop: '1.2rem', overflow: 'hidden' }}>
+                <div style={{ height: '100%', width: '92%', background: 'var(--color-gradient-primary)', borderRadius: '3px' }} />
+              </div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--color-accent)', marginTop: '0.8rem', fontWeight: '700' }}>✓ ATS Optimized</div>
+            </motion.div>
 
-          {/* AI Chat Bubble */}
-          <motion.div
-            className="glass-card"
-            whileHover={{ scale: 1.05, rotate: -2 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ position: 'absolute', top: '42%', left: '0', padding: '1.5rem', width: '310px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', display: 'flex', gap: '1rem', alignItems: 'flex-start', cursor: 'pointer', zIndex: 4 }}
-            animate={{ 
-              y: [0, 12, 0],
-              x: [0, -8, 0]
-            }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          >
-            <div style={{ background: 'var(--color-gradient-primary)', width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', fontWeight: '900', color: '#080C14' }}>AI</div>
-            <div style={{ fontSize: '1rem', lineHeight: 1.5, fontWeight: '500' }}>Tambahkan metrik seperti <span style={{ color: 'var(--color-secondary)', fontWeight: '800' }}>"Meningkatkan penjualan 30%"</span></div>
-          </motion.div>
+            {/* AI Chat Bubble */}
+            <motion.div
+              className="glass-card"
+              whileHover={{ scale: 1.05, rotate: -2 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ position: 'absolute', top: '42%', left: '0', padding: '1.5rem', width: '310px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', display: 'flex', gap: '1rem', alignItems: 'flex-start', cursor: 'pointer', zIndex: 4 }}
+              animate={{ 
+                y: [0, 12, 0],
+                x: [0, -8, 0]
+              }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <div style={{ background: 'var(--color-gradient-primary)', width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', fontWeight: '900', color: '#080C14' }}>AI</div>
+              <div style={{ fontSize: '1rem', lineHeight: 1.5, fontWeight: '500' }}>Tambahkan metrik seperti <span style={{ color: 'var(--color-secondary)', fontWeight: '800' }}>"Meningkatkan penjualan 30%"</span></div>
+            </motion.div>
 
-          {/* CV Personality */}
-          <motion.div
-            className="glass-card"
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ position: 'absolute', bottom: '5%', right: '12%', padding: '0.8rem', width: '220px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', background: 'rgba(74, 144, 226, 0.1)', border: '1px solid rgba(74, 144, 226, 0.2)', cursor: 'pointer', zIndex: 2 }}
-            animate={{ 
-              y: [0, -10, 0],
-              rotate: [0, -2, 0]
-            }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          >
-            <img 
-              src="/cv-personality.png" 
-              alt="CV Personality" 
-              style={{ width: '100%', borderRadius: '10px', filter: 'hue-rotate(180deg) saturate(1.5) brightness(1.1)' }} 
-            />
-          </motion.div>
+            {/* CV Personality */}
+            <motion.div
+              className="glass-card"
+              whileHover={{ scale: 1.05, rotate: 1 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ position: 'absolute', bottom: '5%', right: '12%', padding: '0.8rem', width: '220px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', background: 'rgba(74, 144, 226, 0.1)', border: '1px solid rgba(74, 144, 226, 0.2)', cursor: 'pointer', zIndex: 2 }}
+              animate={{ 
+                y: [0, -10, 0],
+                rotate: [0, -2, 0]
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            >
+              <img 
+                src="/cv-personality.png" 
+                alt="CV Personality" 
+                style={{ width: '100%', borderRadius: '10px', filter: 'hue-rotate(180deg) saturate(1.5) brightness(1.1)' }} 
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
