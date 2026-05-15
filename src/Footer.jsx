@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="footer" style={{ borderTop: '1px solid var(--color-card-border)', background: 'var(--color-bg-secondary)' }}>
+    <footer className="footer" style={{ background: 'transparent' }}>
       <div className="footer-content" style={{ display: 'flex', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap', maxWidth: '900px', margin: '0 auto' }}>
         <div className="footer-brand" style={{ flex: '1 1 200px' }}>
           <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-            <div style={{ 
-              width: '28px', 
-              height: '28px', 
-              background: 'var(--color-gradient-primary)', 
-              borderRadius: '8px', 
-              display: 'flex', 
-              alignItems: 'center', 
+            <div style={{
+              width: '28px',
+              height: '28px',
+              background: 'var(--color-gradient-primary)',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 4px 10px rgba(74, 144, 226, 0.15)',
               position: 'relative'
@@ -32,7 +32,7 @@ function Footer() {
             Membangun masa depan karier Anda melalui teknologi AI yang personal dan terpercaya.
           </p>
         </div>
-        
+
         <div className="footer-nav-groups" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
           <div className="footer-links">
             <h4 style={{ fontSize: '0.85rem', fontWeight: '800', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.05em' }}>Product</h4>

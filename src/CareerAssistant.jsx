@@ -271,7 +271,7 @@ function CareerAssistant() {
             {activeTab === 'interview' && 'Mock Interview'}
           </motion.h1>
 
-          {activeTab === 'analyzer' && (
+          {activeTab === 'analyzer' && !analysisResult && (
             <motion.div
               key="analyzer-intro"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -373,12 +373,9 @@ function CareerAssistant() {
               animate={{ opacity: 1, y: 0 }}
               className="glass-card"
               whileHover={{ borderColor: 'var(--color-primary)', background: 'rgba(74, 144, 226, 0.05)' }}
-              style={{ padding: '3rem', textAlign: 'center', borderStyle: 'dashed', borderWidth: '2px', borderColor: 'var(--color-card-border)', marginBottom: '2rem' }}
+              style={{ padding: '2rem', textAlign: 'center', borderStyle: 'dashed', borderWidth: '2px', borderColor: 'var(--color-card-border)', marginBottom: '2rem' }}
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>
-                Upload
-              </div>
               <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Upload your CV to begin</h3>
               <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2rem' }}>Supports PDF & Image (Max 5MB)</p>
               <div>
@@ -444,48 +441,82 @@ function CareerAssistant() {
 
                 {analyzerStatus === 'result' && analysisResult && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '2rem' }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="glass-card"
+                    style={{ 
+                      padding: '2.5rem', 
+                      marginBottom: '2rem', 
+                      border: '1px solid rgba(255,255,255,0.08)', 
+                      background: 'linear-gradient(180deg, rgba(74,144,226,0.08), rgba(10,17,34,0.85))' 
+                    }}
                   >
-                    {/* Score Section */}
-                    <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                      <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>ATS Match Score</div>
-                      <motion.div 
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: 'spring', damping: 12 }}
-                        style={{ fontSize: '5rem', fontWeight: '900', color: 'var(--color-primary)', lineHeight: '1' }}
-                      >
-                        {analysisResult.score}<span style={{ fontSize: '2rem', marginLeft: '2px', opacity: 0.8 }}>%</span>
-                      </motion.div>
+                    {/* Header: Score & Headline */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem', marginBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '2rem' }}>
+                      <div style={{ flex: '1', minWidth: '300px' }}>
+                        <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--color-primary)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>Analysis Completed</div>
+                        <h2 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '1rem' }}>Review Hasil CV Anda</h2>
+                        <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>
+                          Berdasarkan analisis AI, CV Anda memiliki tingkat kecocokan yang cukup baik. Perhatikan saran di bawah untuk meningkatkan peluang Anda lolos ATS.
+                        </p>
+                      </div>
+                      
+                      <div style={{ textAlign: 'center', padding: '1.5rem 2.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                        <div style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.2rem', textTransform: 'uppercase' }}>ATS Score</div>
+                        <motion.div 
+                          initial={{ scale: 0.8 }}
+                          animate={{ scale: 1 }}
+                          style={{ fontSize: '4.5rem', fontWeight: '900', color: 'var(--color-primary)', lineHeight: '1' }}
+                        >
+                          {analysisResult.score}<span style={{ fontSize: '1.8rem', opacity: 0.7 }}>%</span>
+                        </motion.div>
+                      </div>
                     </div>
 
-                    {/* Feedback Detail */}
-                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="glass-card" style={{ padding: '2rem' }}>
-                      <h3 style={{ marginBottom: '1.5rem', fontSize: '1.2rem', borderBottom: '1px solid var(--color-card-border)', paddingBottom: '0.5rem' }}>Analysis Details</h3>
-
-                      <div style={{ marginBottom: '1.5rem' }}>
-                        <h4 style={{ color: '#10B981', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>Strengths</h4>
-                        <ul style={{ color: 'var(--color-text-secondary)', paddingLeft: '1.5rem', fontSize: '0.95rem' }}>
-                          {analysisResult.strengths?.map((item, i) => <li key={i}>{item}</li>)}
-                        </ul>
-                      </div>
-
-                      <div style={{ marginBottom: '1.5rem' }}>
-                        <h4 style={{ color: '#F59E0B', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>Weaknesses</h4>
-                        <ul style={{ color: 'var(--color-text-secondary)', paddingLeft: '1.5rem', fontSize: '0.95rem' }}>
-                          {analysisResult.weaknesses?.map((item, i) => <li key={i}>{item}</li>)}
-                        </ul>
-                      </div>
-
+                    {/* Content Grid */}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                      {/* Strengths */}
                       <div>
-                        <h4 style={{ color: 'var(--color-primary)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>Suggestions</h4>
-                        <ul style={{ color: 'var(--color-text-secondary)', paddingLeft: '1.5rem', fontSize: '0.95rem' }}>
-                          {analysisResult.suggestions?.map((item, i) => <li key={i}>{item}</li>)}
+                        <h4 style={{ color: '#10B981', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
+                          <span style={{ fontSize: '1.2rem' }}>✅</span> Keunggulan
+                        </h4>
+                        <ul style={{ color: 'var(--color-text-secondary)', paddingLeft: '1.2rem', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                          {analysisResult.strengths?.map((item, i) => <li key={i} style={{ lineHeight: '1.5' }}>{item}</li>)}
                         </ul>
                       </div>
-                    </motion.div>
+
+                      {/* Weaknesses */}
+                      <div>
+                        <h4 style={{ color: '#F59E0B', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
+                          <span style={{ fontSize: '1.2rem' }}>⚠️</span> Perlu Perbaikan
+                        </h4>
+                        <ul style={{ color: 'var(--color-text-secondary)', paddingLeft: '1.2rem', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                          {analysisResult.weaknesses?.map((item, i) => <li key={i} style={{ lineHeight: '1.5' }}>{item}</li>)}
+                        </ul>
+                      </div>
+
+                      {/* Suggestions */}
+                      <div>
+                        <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
+                          <span style={{ fontSize: '1.2rem' }}>💡</span> Saran Aksi
+                        </h4>
+                        <ul style={{ color: 'var(--color-text-secondary)', paddingLeft: '1.2rem', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                          {analysisResult.suggestions?.map((item, i) => <li key={i} style={{ lineHeight: '1.5' }}>{item}</li>)}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Footer Action */}
+                    <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'center' }}>
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => { setFile(null); setAnalysisResult(null); setAnalyzerStatus('idle'); }}
+                        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', padding: '0.8rem 2rem', borderRadius: '12px', cursor: 'pointer', fontSize: '0.9rem' }}
+                      >
+                        Analisis File Lain
+                      </motion.button>
+                    </div>
                   </motion.div>
                 )}
               </motion.div>
